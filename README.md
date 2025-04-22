@@ -2,10 +2,43 @@
 
 ## CPA Prediction Model
 
+The CPA prediction model uses XGBoostRegressor as a model, along with a few feature transformers.
 
+### Division by zero
+
+CPA is calculated by dividing the cost by the number of conversions. If the number of conversions is zero there will be an issue. To pass this obstacle I decided to assign the total campaign cost to CPA, when conversions = 0.
+
+### CPA Transformation
+
+To make CPA a bit better distribution its generally helpful to log the CPA.
+
+### OneHot Encoder
+
+OneHot encoder is used for the mid to low cardinality features. This is not used for market_id because market id has a lot of different possible values and would make the feature vector very sparse.
+
+### Target Encoder
+
+I used then a target encoder for the market id, which basically transforms it into the average CPA value for that specific market id.
 
 ## Decision Making Algorithm
 
+### How the Algorithm Works
+
+1. **Data Loading**: The algorithm loads historical data and a pre-trained model from specified paths.
+
+2. **Generate All Combinations**: The algorithm generates all possible combinations of historical market IDs and publisher IDs.
+
+3. **Add Customer-Specific Features**: The customer-specific features (such as customer ID, industry, category ID, and CPC) are added to each combination.
+
+4. **Predict CPA**: The pre-trained model is used to predict the CPA for each market-publisher combination, given the customer-specific features.
+
+5. **Sort by CPA**: The combinations are sorted by the predicted CPA in ascending order, with the lowest CPA at the top.
+
+6. **Return Best Combination**: The combination with the lowest CPA is returned as the best choice, consisting of the market ID, publisher, and predicted CPA.
+
+### Output
+
+The algorithm returns an object that contains the best market ID, the best publisher, and the predicted CPA for the selected combination.
 
 ## Deployment
 
