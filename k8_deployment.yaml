@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cpa-predictor
-        image: diasmig/cpa-predictor:v1
+        image: diasmig/cpa-predictor:v2
 
         resources:
           limits:

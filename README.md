@@ -56,6 +56,7 @@ In order to get a valid prediction, the user must define the following features:
 - **CPC**: Cost per click. The bid for cost per click, e.g. 0.56
 
 Input example:
+
 ```json
 {
   "category_id": "131000",
@@ -81,11 +82,11 @@ Containerizing an application is a best practice when deploying due to it being 
 
 1. Pull the image:
 
-    `> docker pull diasmig/cpa-predictor:v1`
+    `> docker pull diasmig/cpa-predictor:v2`
 
 2. Run the container:
 
-    `> docker run -p 8000:8000 cpa-predictor:v1`
+    `> docker run -p 8000:8000 cpa-predictor:v2`
 
 This will pull the image and run it on port 8000. You can test the application by going to your browser and go to the url `0.0.0.0:8000/docs`.
 
