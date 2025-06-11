@@ -27,3 +27,4 @@ jobs:
         with:
           context: .
           push: true
+          tags: diasmig/cpa-predictor:latest
