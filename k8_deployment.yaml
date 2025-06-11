@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: cpa-predictor
 spec:
-  replicas: 2 # Two replicas, disaster prevention
+  replicas: 3 # Two replicas, disaster prevention
   selector:
     matchLabels:
       app: cpa-predictor
